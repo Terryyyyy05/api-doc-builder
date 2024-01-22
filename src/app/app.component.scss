@@ -1,0 +1,17 @@
+#print-section {
+  width: 1123px; /* 或者使用其他估算值，根据需要调整 */
+  // height: 794px;
+  min-height: 100vh;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 1);
+  @apply mx-20;
+  // &::after {
+  //   content: counter(page-number);
+  //   counter-increment: page-number 1;
+  //   position: absolute;
+  //   right: 0;
+  //   left: 0;
+  //   bottom: 100px;
+  //   font-size: 30px;
+  //   text-align: center;
+  // }
+}

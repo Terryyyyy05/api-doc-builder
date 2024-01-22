@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+}
+@page {
+  size: A4 landscape;
+  margin: 0;
+}
+
+body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+th,
+td {
+  @apply border border-black;
+  @apply px-6;
+}
