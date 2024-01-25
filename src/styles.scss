@@ -15,6 +15,10 @@ body {
   print-color-adjust: exact;
 }
 
+table {
+  @apply w-full;
+}
+
 th,
 td {
   @apply border border-black;
