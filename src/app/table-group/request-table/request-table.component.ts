@@ -1,12 +1,13 @@
+import { EMPTY_DATA_TEXT } from './../shared/config';
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { PayloadTableComponent } from '../payload-table/payload-table.component';
 
 @Component({
   selector: 'app-request-table',
   standalone: true,
-  imports: [],
   templateUrl: './request-table.component.html',
-  styleUrl: './request-table.component.scss'
+  styleUrl: './request-table.component.scss',
+  imports: [NgIf, PayloadTableComponent],
 })
-export class RequestTableComponent {
-
-}
+export class RequestTableComponent {}

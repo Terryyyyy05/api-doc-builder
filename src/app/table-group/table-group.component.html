@@ -1,42 +1,18 @@
-<!-- HEAD -->
-<table>
-  <thead>
-    <tr class="bg-grayTable">
-      <th colspan="2" class="text-left">
-        <span class="font-normal"> API 資訊 </span>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="w-[12%]">
-        <span>API 代號</span>
-      </td>
-      <td>
-        <span>CACTX503_01</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="">
-        <span>功能名稱</span>
-      </td>
-      <td>
-        <span>外幣付款預約註銷 - 初始化畫面</span>
-      </td>
-    </tr>
-    <tr>
-      <td class="">
-        <span>服務分類</span>
-      </td>
-      <td>
-        <span>Twd</span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!-- API INFO -->
+<div class="break-inside-avoid">
+  <section>
+    <app-api-info-table></app-api-info-table>
+  </section>
 
-<!-- REQUEST -->
-<section class="my-8">
-  <app-request-table class="block mb-8"></app-request-table>
-  <app-sample-table></app-sample-table>
+  <!-- REQUEST -->
+  <section class="my-8">
+    <app-request-table class="block mb-8"></app-request-table>
+    <app-sample-table class=""></app-sample-table>
+  </section>
+</div>
+
+<!-- RESPONSE -->
+<section class="my-8 break-inside-avoid">
+  <app-response-table class="block mb-8"></app-response-table>
+  <app-sample-table class=""></app-sample-table>
 </section>

@@ -10,6 +10,8 @@ module.exports = {
         yellowTable: "#FEFF99",
         yellowTable2: "#FEFF00",
         blueTable: "#99CCFF",
+        resBlueTable: "#CCFFFF",
+        resBlueTable2: "#C7D9F1",
       },
     },
   },

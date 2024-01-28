@@ -1,0 +1,12 @@
+<ng-container *ngIf="true; else elseTemplate">
+  <tr>
+    <td class="text-center">02</td>
+    <td>{{ emptyText }}</td>
+    <td class="text-center">{{ emptyText }}</td>
+    <td>{{ emptyText }}</td>
+    <!-- 是否為null -->
+    <td *ngIf="isResponse" class="text-center">{{ emptyText }}</td>
+    <td>{{ emptyText }}</td>
+  </tr>
+</ng-container>
+<ng-template #elseTemplate> haha </ng-template>

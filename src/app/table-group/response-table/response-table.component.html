@@ -1,16 +1,16 @@
 <ul>
   <li class="list-disc font-bold">
-    <h2>CACTX503_01 初始化畫面（REQUEST）</h2>
+    <h2>CACTX503_01 初始化畫面（RESPONSE）</h2>
   </li>
 </ul>
 
 <table>
-  <tr class="bg-yellowTable2">
+  <tr class="bg-resBlueTable">
     <td colspan="6" class="text-center">
-      <span>CACTX503_01 (REQUEST)</span>
+      <span>CACTX503_01 (RESPONSE)</span>
     </td>
   </tr>
-  <tr class="bg-yellowTable2">
+  <tr class="bg-resBlueTable2">
     <td colspan="6" class="font-semibold">
       <span>Request Header</span>
     </td>
@@ -20,7 +20,7 @@
       <span>規則請參照API-Common 文件(Request Header)</span>
     </td>
   </tr>
-  <tr class="bg-yellowTable2">
+  <tr class="bg-resBlueTable2">
     <td colspan="6" class="font-semibold">
       <span>Request Body</span>
     </td>
@@ -32,20 +32,16 @@
     <td>
       <span>欄位名稱</span>
     </td>
-    <td class="w-[13%]">
+    <td>
       <span>資料型態</span>
     </td>
     <td>
       <span>欄位說明</span>
     </td>
-    <td class="w-[10%]">
-      <span>是否為 Null</span>
-    </td>
     <td>
       <span>備註</span>
     </td>
   </tr>
-
   <!-- payload -->
-  <app-payload-table [isResponse]="true" class="table-row-group"></app-payload-table>
+  <app-payload-table [isResponse]="false" class="table-row-group"></app-payload-table>
 </table>
