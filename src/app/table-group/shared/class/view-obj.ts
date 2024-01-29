@@ -8,36 +8,78 @@ export class ViewObj {
   // 服務分類
   serviceType!: string;
 
-  reqData!: PayloadData;
+  reqData!: {
+    payloadList: PayloadData[];
+    jsonData: {
+      resHeader: '{...}';
+      reqBody: {};
+    };
+  };
 
   resData!: {
-    payloadList: any[];
-    jsonData: {};
+    payloadList: PayloadData[];
+    jsonData: {
+      resHeader: '{...}';
+      resBody: {};
+    };
   };
 
   constructor() {
-    this.resData = { payloadList: [], jsonData: {} };
+    this.reqData = {
+      payloadList: [],
+      jsonData: {
+        resHeader: '{...}',
+        reqBody: {},
+      },
+    };
+    this.resData = {
+      payloadList: [],
+      jsonData: {
+        resHeader: '{...}',
+        resBody: {},
+      },
+    };
   }
 
-  setPayloadData(resBodyConfig: ApiConfig, level = '02') {
-    const keyList = Object.keys(resBodyConfig);
+  setPayloadData(apiConfig: ApiConfig, type: 'req' | 'res', level = '02') {
+    if (!apiConfig) return;
+    const keyList = Object.keys(apiConfig);
     const oriLevel = level;
 
     keyList.forEach((key, index) => {
       const tempItem = new PayloadData();
-      tempItem.setData(key, resBodyConfig[key], level);
-      this.resData.payloadList.push(tempItem);
+      tempItem.setData(key, apiConfig[key], level);
+      if (type === 'req') {
+        this.reqData.payloadList.push(tempItem);
+      } else if (type === 'res') {
+        this.resData.payloadList.push(tempItem);
+      }
 
       // data & list(遞歸)
-      if (resBodyConfig[key].data || resBodyConfig[key].list) {
+      if (apiConfig[key].data || apiConfig[key].list) {
         level = '0' + (+level + 1).toString();
-        const dataOrList = resBodyConfig[key].data ?? resBodyConfig[key].list;
-        if (dataOrList) this.setPayloadData(dataOrList, level);
+        const dataOrList = apiConfig[key].data ?? apiConfig[key].list;
+        if (dataOrList) this.setPayloadData(dataOrList, type, level);
         else console.error('不可能會進到的錯誤');
       }
 
       level = oriLevel;
     });
+  }
+
+  setJson(apiConfig: ApiConfig, type: 'req' | 'res') {
+    const jsonString: Record<string, any> = {};
+    if (apiConfig) {
+      Object.keys(apiConfig).forEach((item) => {
+        jsonString[item] = this.getJson(apiConfig[item]);
+      });
+    }
+
+    if (type === 'req') {
+      this.reqData.jsonData.reqBody = jsonString;
+    } else if (type === 'res') {
+      this.resData.jsonData.resBody = jsonString;
+    }
   }
 
   setBasicData(json: any) {

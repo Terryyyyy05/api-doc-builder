@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PayloadTableComponent } from '../payload-table/payload-table.component';
 
 @Component({
@@ -8,4 +8,6 @@ import { PayloadTableComponent } from '../payload-table/payload-table.component'
   styleUrl: './response-table.component.scss',
   imports: [PayloadTableComponent],
 })
-export class ResponseTableComponent {}
+export class ResponseTableComponent {
+  @Input() payloadList!: any[];
+}

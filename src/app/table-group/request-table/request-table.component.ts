@@ -1,5 +1,5 @@
 import { EMPTY_DATA_TEXT } from './../shared/config';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { PayloadTableComponent } from '../payload-table/payload-table.component';
 
@@ -10,4 +10,6 @@ import { PayloadTableComponent } from '../payload-table/payload-table.component'
   styleUrl: './request-table.component.scss',
   imports: [NgIf, PayloadTableComponent],
 })
-export class RequestTableComponent {}
+export class RequestTableComponent {
+  @Input() payloadList!: any[];
+}

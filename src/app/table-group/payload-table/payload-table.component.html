@@ -1,4 +1,4 @@
-<ng-container *ngIf="true; else elseTemplate">
+<ng-container *ngIf="payloadList.length === 0; else elseTemplate">
   <tr>
     <td class="text-center">02</td>
     <td>{{ emptyText }}</td>
@@ -9,4 +9,24 @@
     <td>{{ emptyText }}</td>
   </tr>
 </ng-container>
-<ng-template #elseTemplate> haha </ng-template>
+<ng-template #elseTemplate>
+  <ng-container *ngFor="let item of payloadList">
+    <tr class="payload-row" [ngClass]="getBgColor(item.level, item.type)">
+      <td class="text-center">{{ item.level }}</td>
+      <td
+        [ngClass]="{
+          '!pl-1': item.level === '02',
+          '!pl-5': item.level === '03',
+          '!pl-9': item.level === '04',
+          '!pl-13': item.level === '05',
+        }"
+      >
+        {{ item.fieldName }}
+      </td>
+      <td class="text-center">{{ item.type }}</td>
+      <td *ngIf="isResponse">{{ item.isRequired }}</td>
+      <td class="!px-4">{{ item.fieldDescription }}</td>
+      <td>{{ item.memo }}</td>
+    </tr>
+  </ng-container>
+</ng-template>
