@@ -1,12 +1,12 @@
 <ng-container *ngIf="payloadList.length === 0; else elseTemplate">
   <tr>
     <td class="text-center">02</td>
-    <td>{{ emptyText }}</td>
+    <td class="!pl-2">{{ emptyText }}</td>
     <td class="text-center">{{ emptyText }}</td>
-    <td>{{ emptyText }}</td>
+    <td class="!pl-2">{{ emptyText }}</td>
     <!-- 是否為null -->
     <td *ngIf="isResponse" class="text-center">{{ emptyText }}</td>
-    <td>{{ emptyText }}</td>
+    <td class="!pl-2">{{ emptyText }}</td>
   </tr>
 </ng-container>
 <ng-template #elseTemplate>
@@ -24,8 +24,8 @@
         {{ item.fieldName }}
       </td>
       <td class="text-center">{{ item.type }}</td>
-      <td *ngIf="isResponse">{{ item.isRequired }}</td>
       <td class="!px-4">{{ item.fieldDescription }}</td>
+      <td *ngIf="isResponse">{{ item.isRequired }}</td>
       <td>{{ item.memo }}</td>
     </tr>
   </ng-container>

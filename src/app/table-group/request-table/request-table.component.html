@@ -29,23 +29,23 @@
     <td class="w-[5%]">
       <span>層級</span>
     </td>
-    <td>
+    <td class="w-[20%]">
       <span>欄位名稱</span>
     </td>
     <td class="w-[13%]">
       <span>資料型態</span>
     </td>
-    <td>
+    <td class="w-[20%]">
       <span>欄位說明</span>
     </td>
-    <td class="w-[10%]">
+    <td class="w-[12%]">
       <span>是否為 Null</span>
     </td>
-    <td>
+    <td class="!text-left !pl-4">
       <span>備註</span>
     </td>
   </tr>
 
   <!-- payload -->
-  <app-payload-table [isResponse]="true" class="table-row-group"></app-payload-table>
+  <app-payload-table class="table-row-group" [isResponse]="true" [payloadList]="payloadList"></app-payload-table>
 </table>

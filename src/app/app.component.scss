@@ -1,9 +1,9 @@
 #print-section {
   width: 1123px; /* 或者使用其他估算值，根据需要调整 */
   // height: 794px;
-  min-height: 100vh;
+  min-height: 80vh;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 1);
-  @apply mx-20;
+  @apply mx-20 mb-10;
   // &::after {
   //   content: counter(page-number);
   //   counter-increment: page-number 1;

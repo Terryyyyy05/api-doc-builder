@@ -1,22 +1,29 @@
-<!-- <router-outlet /> -->
-<h1>安安</h1>
-<input type="file" (change)="fileOnChange($event)" accept=".json" />
-<p>{{ content | json }}</p>
-<button
-  ngxPrint
-  printSectionId="print-section"
-  [openNewTab]="true"
-  printTitle="呼呼呼"
-  [previewOnly]="false"
-  [closeWindow]="true"
-  [useExistingCss]="true"
-  bodyClass="black"
->
-  print
-</button>
+<div class="m-4">
+  <input type="file" (change)="fileOnChange($event)" multiple accept=".json" />
+  <input class="border border-black" [(ngModel)]="taskTitle" type="text" />
+
+  <button
+    class="w-16 border border-black"
+    ngxPrint
+    printSectionId="print-section"
+    [openNewTab]="true"
+    printTitle="呼呼呼"
+    [previewOnly]="false"
+    [closeWindow]="true"
+    [useExistingCss]="true"
+    bodyClass="black"
+  >
+    print
+  </button>
+  <button class="w-16 border border-black" (click)="renderPage()">render</button>
+</div>
 
 <div id="print-section" class="">
   <div class="p-4 px-20">
-    <app-table-group></app-table-group>
+    <ng-container *ngIf="isShowPage">
+      <ng-container *ngFor="let item of dataList">
+        <app-table-group class="break-inside-avoid" [apiConfig]="item"></app-table-group>
+      </ng-container>
+    </ng-container>
   </div>
 </div>
