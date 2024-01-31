@@ -1,18 +1,26 @@
 <!-- API INFO -->
 <div class="break-inside-avoid">
   <section>
-    <app-api-info-table></app-api-info-table>
+    <app-api-info-table [infoTableData]="viewObj.infoData"></app-api-info-table>
   </section>
 
   <!-- REQUEST -->
   <section class="my-8">
-    <app-request-table class="block mb-8" [payloadList]="viewObj.reqData.payloadList"></app-request-table>
-    <app-sample-table [sample]="viewObj.reqData.jsonData"></app-sample-table>
+    <app-request-table
+      class="block mb-8"
+      [payloadList]="viewObj.reqData.payloadList"
+      [infoData]="viewObj.infoData"
+    ></app-request-table>
+    <app-sample-table [sample]="viewObj.reqData.jsonData" [isResponse]="false"></app-sample-table>
   </section>
 </div>
 
 <!-- RESPONSE -->
 <section class="my-8 break-inside-avoid">
-  <app-response-table class="block mb-8" [payloadList]="viewObj.resData.payloadList"></app-response-table>
-  <app-sample-table [sample]="viewObj.resData.jsonData"></app-sample-table>
+  <app-response-table
+    class="block mb-8"
+    [payloadList]="viewObj.resData.payloadList"
+    [infoData]="viewObj.infoData"
+  ></app-response-table>
+  <app-sample-table [sample]="viewObj.resData.jsonData" [isResponse]="true"></app-sample-table>
 </section>

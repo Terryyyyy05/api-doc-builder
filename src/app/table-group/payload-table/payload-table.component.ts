@@ -21,10 +21,6 @@ export class PayloadTableComponent {
 
   constructor(private dataFormatService: DataFormatService) {}
 
-  ngOnInit(): void {
-    console.log('goooooo', this.payloadList);
-  }
-
   getBgColor(level: PayloadData['level'], type: PayloadData['type']): string | undefined {
     if (type === 'String') return;
     const bgColorMap = new Map([

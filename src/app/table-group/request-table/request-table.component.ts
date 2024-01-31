@@ -1,7 +1,8 @@
 import { EMPTY_DATA_TEXT } from './../shared/config';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { PayloadTableComponent } from '../payload-table/payload-table.component';
+import { BaseApiTableComponent } from '../shared/base/base-api-table.component';
 
 @Component({
   selector: 'app-request-table',
@@ -10,6 +11,4 @@ import { PayloadTableComponent } from '../payload-table/payload-table.component'
   styleUrl: './request-table.component.scss',
   imports: [NgIf, PayloadTableComponent],
 })
-export class RequestTableComponent {
-  @Input() payloadList!: any[];
-}
+export class RequestTableComponent extends BaseApiTableComponent {}

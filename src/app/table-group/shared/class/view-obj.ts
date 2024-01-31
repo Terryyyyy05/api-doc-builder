@@ -1,12 +1,17 @@
-import { ApiConfig, ApiConfigKey } from '../type/type';
+import { ApiConfig, ApiConfigKey, InfoConfig } from '../type/type';
 
 export class ViewObj {
-  // API 代號
-  taskId!: string;
-  // 功能名稱
-  name!: string;
-  // 服務分類
-  serviceType!: string;
+  infoData!: {
+    // API 代號
+    taskId: string;
+    // 功能名稱
+    name: string;
+    // 服務分類
+    serviceType: string;
+
+    // taskId 名稱
+    taskIdText?: string;
+  };
 
   reqData!: {
     payloadList: PayloadData[];
@@ -25,6 +30,12 @@ export class ViewObj {
   };
 
   constructor() {
+    this.infoData = {
+      taskId: '未定義',
+      name: '未設定',
+      serviceType: '未定義',
+    };
+
     this.reqData = {
       payloadList: [],
       jsonData: {
@@ -82,10 +93,11 @@ export class ViewObj {
     }
   }
 
-  setBasicData(json: any) {
-    this.taskId = json.taskId;
-    this.name = json.name;
-    this.serviceType = json.serviceType;
+  setInfoTable(infoConfig: InfoConfig) {
+    this.infoData.taskId = infoConfig.taskId;
+    this.infoData.taskIdText = infoConfig.taskIdText;
+    this.infoData.name = infoConfig.name;
+    this.infoData.serviceType = infoConfig.serviceType;
   }
 
   getJson(resBodyConfig: ApiConfig) {

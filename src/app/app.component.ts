@@ -1,3 +1,5 @@
+import { JsonConfig } from './table-group/shared/type/type';
+import { DataFormatService } from './table-group/shared/service/data-format.service';
 import { JsonPipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,9 +17,9 @@ import { TableGroupComponent } from './table-group/table-group.component';
 export class AppComponent {
   isShowPage: boolean = false;
   taskTitle!: string;
-  dataList: any[] = [];
+  dataList: JsonConfig[] = [];
   content: any;
-  constructor(private printService: NgxPrintService) {}
+  constructor(private dataFormatService: DataFormatService) {}
 
   fileOnChange(event: any) {
     this.isShowPage = false;
@@ -37,7 +39,11 @@ export class AppComponent {
   }
 
   renderPage(): void {
-    console.log(this.taskTitle);
+    console.log('api 功能：', this.taskTitle);
+
+    this.dataList.forEach((item) => {
+      item.infoConfig.taskIdText = this.taskTitle;
+    });
 
     this.isShowPage = true;
   }

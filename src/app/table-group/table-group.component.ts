@@ -1,3 +1,4 @@
+import { JsonConfig } from './shared/type/type';
 import { Component, Input } from '@angular/core';
 import { RequestTableComponent } from './request-table/request-table.component';
 import { SampleTableComponent } from './sample-table/sample-table.component';
@@ -15,7 +16,7 @@ import { DataFormatService } from './shared/service/data-format.service';
   providers: [DataFormatService],
 })
 export class TableGroupComponent {
-  @Input() apiConfig = jsonString2;
+  @Input() apiConfig!: JsonConfig;
 
   viewObj!: ViewObj;
 
