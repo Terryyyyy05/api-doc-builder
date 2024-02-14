@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ViewObj } from '../class/view-obj';
-import { ApiConfig, JsonConfig } from '../type/type';
+import { JsonConfig } from '../type/type';
 
 @Injectable({
   providedIn: 'root',

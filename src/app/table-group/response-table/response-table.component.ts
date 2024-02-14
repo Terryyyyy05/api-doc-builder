@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { PayloadTableComponent } from '../payload-table/payload-table.component';
 import { BaseApiTableComponent } from '../shared/base/base-api-table.component';
-import { PayloadData } from '../shared/class/view-obj';
 
 @Component({
   selector: 'app-response-table',

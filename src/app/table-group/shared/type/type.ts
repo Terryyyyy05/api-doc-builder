@@ -18,7 +18,7 @@ export type ApiConfigItem = {
   value?: string;
   data?: ApiConfig;
   list?: ApiConfig;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 /* infoConfig */

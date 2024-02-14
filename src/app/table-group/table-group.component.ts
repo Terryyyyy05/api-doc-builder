@@ -1,10 +1,10 @@
 import { JsonConfig } from './shared/type/type';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RequestTableComponent } from './request-table/request-table.component';
 import { SampleTableComponent } from './sample-table/sample-table.component';
 import { ResponseTableComponent } from './response-table/response-table.component';
 import { ApiInfoTableComponent } from './api-info-table/api-info-table.component';
-import { jsonString2, ViewObj } from './shared/class/view-obj';
+import { ViewObj } from './shared/class/view-obj';
 import { DataFormatService } from './shared/service/data-format.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { DataFormatService } from './shared/service/data-format.service';
   imports: [RequestTableComponent, SampleTableComponent, ResponseTableComponent, ApiInfoTableComponent],
   providers: [DataFormatService],
 })
-export class TableGroupComponent {
+export class TableGroupComponent implements OnInit {
   @Input() apiConfig!: JsonConfig;
 
   viewObj!: ViewObj;

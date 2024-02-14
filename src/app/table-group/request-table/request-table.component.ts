@@ -1,4 +1,3 @@
-import { EMPTY_DATA_TEXT } from './../shared/config';
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { PayloadTableComponent } from '../payload-table/payload-table.component';

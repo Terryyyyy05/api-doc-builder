@@ -17,7 +17,7 @@ export class ViewObj {
     payloadList: PayloadData[];
     jsonData: {
       resHeader: '{...}';
-      reqBody: {};
+      reqBody: object;
     };
   };
 
@@ -25,7 +25,7 @@ export class ViewObj {
     payloadList: PayloadData[];
     jsonData: {
       resHeader: '{...}';
-      resBody: {};
+      resBody: object;
     };
   };
 
@@ -57,7 +57,7 @@ export class ViewObj {
     const keyList = Object.keys(apiConfig);
     const oriLevel = level;
 
-    keyList.forEach((key, index) => {
+    keyList.forEach((key) => {
       const tempItem = new PayloadData();
       tempItem.setData(key, apiConfig[key], level);
       if (type === 'req') {
@@ -79,10 +79,10 @@ export class ViewObj {
   }
 
   setJson(apiConfig: ApiConfig, type: 'req' | 'res') {
-    const jsonString: Record<string, any> = {};
+    const jsonString: Record<string, unknown> = {};
     if (apiConfig) {
       Object.keys(apiConfig).forEach((item) => {
-        jsonString[item] = this.getJson(apiConfig[item]);
+        jsonString[item] = this.getJson(apiConfig[item] as ApiConfig);
       });
     }
 
@@ -104,20 +104,20 @@ export class ViewObj {
     if (resBodyConfig['data']) {
       // data
       const childList = Object.keys(resBodyConfig['data']);
-      const tempObj: Record<string, any> = {};
+      const tempObj: Record<string, unknown> = {};
       childList.forEach((item2) => {
         item2 as ApiConfigKey;
         resBodyConfig['data'] as ApiConfig;
-        tempObj[item2] = this.getJson(resBodyConfig['data'][item2]);
+        tempObj[item2] = this.getJson(resBodyConfig['data'][item2] as ApiConfig);
       });
       return tempObj;
     } else if (resBodyConfig['list']) {
       // list
       const childList = Object.keys(resBodyConfig['list']);
       const tempList = [];
-      const tempObj: Record<string, any> = {};
+      const tempObj: Record<string, unknown> = {};
       childList.forEach((item2) => {
-        tempObj[item2] = this.getJson(resBodyConfig['list'][item2]);
+        tempObj[item2] = this.getJson(resBodyConfig['list'][item2] as ApiConfig);
       });
       tempList.push(tempObj);
       return tempList;
@@ -144,10 +144,10 @@ export class PayloadData {
       description: string;
       memo: string;
       value?: string;
-      data?: { [key: string]: any };
-      list?: { [key: string]: any };
+      data?: { [key: string]: unknown };
+      list?: { [key: string]: unknown };
     },
-    level: string
+    level: string,
   ): void {
     this.level = level;
     this.fieldName = fieldName;

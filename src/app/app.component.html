@@ -1,7 +1,6 @@
 <div class="m-4">
   <input type="file" (change)="fileOnChange($event)" multiple accept=".json" />
   <input class="border border-black" [(ngModel)]="taskTitle" type="text" />
-
   <button
     class="w-16 border border-black"
     ngxPrint
@@ -21,9 +20,9 @@
 <div id="print-section" class="">
   <div class="p-4 px-20">
     <ng-container *ngIf="isShowPage">
-      <ng-container *ngFor="let item of dataList">
-        <app-table-group class="break-inside-avoid" [apiConfig]="item"></app-table-group>
-      </ng-container>
+      <ng-template ngFor let-item let-i="index" [ngForOf]="dataList">
+        <app-table-group [id]="i" class="break-inside-avoid" [apiConfig]="item"></app-table-group>
+      </ng-template>
     </ng-container>
   </div>
 </div>

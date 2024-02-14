@@ -1,6 +1,6 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { jsonString2, PayloadData, ViewObj } from '../shared/class/view-obj';
+import { PayloadData } from '../shared/class/view-obj';
 import { EMPTY_DATA_TEXT, FIELD_NAME_PADDING, ROW_BG_COLOR } from '../shared/config';
 import { DataFormatService } from '../shared/service/data-format.service';
 

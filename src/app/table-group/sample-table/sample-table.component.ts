@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sample-table',
@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: './sample-table.component.html',
   styleUrl: './sample-table.component.scss',
 })
-export class SampleTableComponent {
-  @Input() sample!: Record<string, any>;
+export class SampleTableComponent implements OnInit {
+  @Input() sample!: Record<string, unknown>;
   @Input() isResponse!: boolean;
 
   typeText!: string;
